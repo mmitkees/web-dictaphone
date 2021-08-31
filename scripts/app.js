@@ -8,8 +8,8 @@ const mainSection = document.querySelector('.main-controls');
 
 stop.disabled = true;
 window.onerror = function(msg, url, linenumber) {
-    alert('Error message: '+msg+'\nURL: '+url+'\nLine Number: '+linenumber);
-    return true;
+  alert('Error message: ' + msg + '\nURL: ' + url + '\nLine Number: ' + linenumber);
+  return true;
 }
 // visualiser setup - create web audio api context and canvas
 
@@ -106,22 +106,23 @@ if (navigator.mediaDevices.getUserMedia) {
 
     mediaRecorder.ondataavailable = function(e) {
       chunks.push(e.data);
-      download();
+      var downloadblob = new Blob(chunks, {
+        type: "audio/ogg"
+      });
       let reader = new FileReader()
-      reader.onloadend = () => {
-        console.log(reader.result);
-        // You can upload the base64 to server here.
-  //      ThunkableWebviewerExtension.postMessage(reader.result);
+      reader.readAsDataURL(downloadblob);
+      reader.onloadend = function() {
+        var base64data = reader.result;
+        console.log(base64data);
       }
-      reader.readAsDataURL(e.data);
+
+      ThunkableWebviewerExtension.postMessage(reader.result);
+
     }
+    //download(downloadblob);
   }
 
-  function download() {
-    var downloadblob = new Blob(chunks, {
-      type: "audio/ogg"
-    });
-    ThunkableWebviewerExtension.postMessage('downloadblob');
+  function download(blob) {
 
     //var url = URL.createObjectURL(downloadblob);
     //var a = document.createElement("a");

@@ -109,18 +109,20 @@ if (navigator.mediaDevices.getUserMedia) {
       var downloadblob = new Blob(chunks, {
         type: "audio/ogg"
       });
-      let reader = new FileReader()
-      reader.readAsDataURL(downloadblob);
-      reader.onloadend = function() {
-        var base64data = reader.result;
-        console.log(base64data);
-      }
+      var base64file= blobToBase64(downloadblob);
 
-      ThunkableWebviewerExtension.postMessage(reader.result);
+      ThunkableWebviewerExtension.postMessage(base64file);
 
     }
     //download(downloadblob);
   }
+  function blobToBase64(blob) {
+  return new Promise((resolve, _) => {
+    const reader = new FileReader();
+    reader.onloadend = () => resolve(reader.result);
+    reader.readAsDataURL(blob);
+  });
+}
 
   function download(blob) {
 

@@ -106,7 +106,7 @@ if (navigator.mediaDevices.getUserMedia) {
 
     mediaRecorder.ondataavailable = function(e) {
       chunks.push(e.data);
-      download();
+    //  download();
       let reader = new FileReader()
       reader.onloadend = () => {
         console.log(reader.result);

@@ -7,7 +7,10 @@ const mainSection = document.querySelector('.main-controls');
 // disable stop button while not recording
 
 stop.disabled = true;
-
+window.onerror = function(msg, url, linenumber) {
+    alert('Error message: '+msg+'\nURL: '+url+'\nLine Number: '+linenumber);
+    return true;
+}
 // visualiser setup - create web audio api context and canvas
 
 let audioCtx;

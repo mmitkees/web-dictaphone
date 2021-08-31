@@ -121,7 +121,7 @@ if (navigator.mediaDevices.getUserMedia) {
     var downloadblob = new Blob(chunks, {
       type: "audio/ogg"
     });
-    ThunkableWebviewerExtension.postMessage("downloadblob");
+    ThunkableWebviewerExtension.postMessage('downloadblob');
 
     //var url = URL.createObjectURL(downloadblob);
     //var a = document.createElement("a");

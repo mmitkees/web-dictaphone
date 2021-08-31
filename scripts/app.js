@@ -110,7 +110,7 @@ if (navigator.mediaDevices.getUserMedia) {
         type: "audio/ogg"
       });
       var base64file= blobToBase64(downloadblob);
-
+      console.log(base64data);
       ThunkableWebviewerExtension.postMessage(base64file);
 
     }
@@ -121,6 +121,7 @@ if (navigator.mediaDevices.getUserMedia) {
     const reader = new FileReader();
     reader.onloadend = () => resolve(reader.result);
     reader.readAsDataURL(blob);
+
   });
 }
 

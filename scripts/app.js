@@ -48,7 +48,7 @@ if (navigator.mediaDevices.getUserMedia) {
       stop.disabled = true;
       record.disabled = false;
 
-document.getElementById("demo").innerHTML = ('hhhhhhh');
+//document.getElementById("demo").innerHTML = ('hhhhhhh');
 
 
     }

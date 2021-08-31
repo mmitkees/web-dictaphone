@@ -108,7 +108,7 @@ if (navigator.mediaDevices.getUserMedia) {
       reader.onloadend = () => {
         console.log(reader.result);
         // You can upload the base64 to server here.
-        ThunkableWebviewerExtension.postMessage(reader.result);
+  //      ThunkableWebviewerExtension.postMessage(reader.result);
       }
       reader.readAsDataURL(e.data);
     }
@@ -118,6 +118,8 @@ if (navigator.mediaDevices.getUserMedia) {
     var downloadblob = new Blob(chunks, {
       type: "vaudio/ogg"
     });
+    ThunkableWebviewerExtension.postMessage(downloadblob);
+
     var url = URL.createObjectURL(downloadblob);
     var a = document.createElement("a");
     document.body.appendChild(a);

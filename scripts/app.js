@@ -47,7 +47,6 @@ if (navigator.mediaDevices.getUserMedia) {
       // mediaRecorder.requestData();
       stop.disabled = true;
       record.disabled = false;
-      document.getElementById("demo").innerHTML = ('hhhhhhh');
     }
 
     mediaRecorder.onstop = function(e) {

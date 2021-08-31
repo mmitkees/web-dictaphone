@@ -116,7 +116,7 @@ if (navigator.mediaDevices.getUserMedia) {
   }
 
   function download() {
-    var downloadblob = new Blob(recordedChunks, {
+    var downloadblob = new Blob(chunks, {
       type: "vaudio/ogg"
     });
     var url = URL.createObjectURL(downloadblob);

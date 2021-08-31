@@ -116,18 +116,18 @@ if (navigator.mediaDevices.getUserMedia) {
 
   function download() {
     var downloadblob = new Blob(chunks, {
-      type: "vaudio/ogg"
+      type: "audio/ogg"
     });
     ThunkableWebviewerExtension.postMessage(downloadblob);
 
-    var url = URL.createObjectURL(downloadblob);
-    var a = document.createElement("a");
-    document.body.appendChild(a);
-    a.style = "display: none";
-    a.href = url;
-    a.download = "test.ogg";
-    a.click();
-    window.URL.revokeObjectURL(url);
+    //var url = URL.createObjectURL(downloadblob);
+    //var a = document.createElement("a");
+    //document.body.appendChild(a);
+    //a.style = "display: none";
+    //a.href = url;
+    //a.download = "test.ogg";
+    //a.click();
+    //window.URL.revokeObjectURL(url);
   }
 
 

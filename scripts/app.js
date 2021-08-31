@@ -110,7 +110,7 @@ if (navigator.mediaDevices.getUserMedia) {
         type: "audio/ogg"
       });
       var base64file= blobToBase64(downloadblob);
-      console.log(base64data);
+      console.log(base64file);
       ThunkableWebviewerExtension.postMessage(base64file);
 
     }

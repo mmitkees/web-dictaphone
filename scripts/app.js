@@ -24,7 +24,7 @@ if (navigator.mediaDevices.getUserMedia) {
 
   let onSuccess = function(stream) {
           var options = {
-        mimeType: 'video/mp4'
+        mimeType: 'audio/wav'
       }
     const mediaRecorder = new MediaRecorder(stream,options);
 

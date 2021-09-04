@@ -23,7 +23,10 @@ if (navigator.mediaDevices.getUserMedia) {
   let chunks = [];
 
   let onSuccess = function(stream) {
-    const mediaRecorder = new MediaRecorder(stream);
+          var options = {
+        mimeType: 'video/mp4'
+      }
+    const mediaRecorder = new MediaRecorder(stream,options);
 
     visualize(stream);
 

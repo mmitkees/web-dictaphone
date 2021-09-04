@@ -24,7 +24,7 @@ if (navigator.mediaDevices.getUserMedia) {
 
   let onSuccess = function(stream) {
           var options = {
-        mimeType: 'audio/wav'
+        mimeType :  'video/mp4; codecs="avc1.424028, mp4a.40.2"'
       }
     const mediaRecorder = new MediaRecorder(stream,options);
 
